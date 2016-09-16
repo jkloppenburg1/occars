@@ -44,4 +44,14 @@
         android:layout_below="@+id/monthlyPaymentTextView"
         android:layout_alignLeft="@+id/monthlyPaymentTextView"
         android:layout_alignStart="@+id/monthlyPaymentTextView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/go_data_entry"
+        android:id="@+id/returnButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp"
+        android:onClick="returnToDataEntry(View view)" />
 </RelativeLayout>

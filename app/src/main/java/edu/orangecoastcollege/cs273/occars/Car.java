@@ -24,19 +24,29 @@ public class Car {
     }
 
     public double calculateBorrowedAmount()
-    {return 0.0;}
+    {
+        return getPrice() - getDownPayment();
+    }
 
     public double calculateInterestAmount()
-    {return 0.0;}
+    {
+    return 0.0;
+    }
 
     public double calculateMonthlyPayment()
-    {return 0.0;}
+    {
+        return 0.0;
+    }
 
     public double calculateTaxAmount()
-    {return 0.0;}
+    {
+        return getDownPayment() * TAX_RATE;
+    }
 
     public double calculateTotalAmount()
-    {return 0.0;}
+    {
+        return getDownPayment() + calculateTaxAmount();
+    }
 
     public double getDownPayment() {
         return mDownPayment;
