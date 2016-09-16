@@ -91,30 +91,32 @@
         android:id="@+id/loanTermRadioGroup"
         android:layout_column="0"
         android:layout_row="4"
-        android:gravity="center_horizontal"
         android:layout_rowSpan="2"
-        android:background="@color/steel_blue">
+        android:gravity="center_horizontal">
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/years3"
             android:id="@+id/threeYearsRadioButton"
-            android:checked="false" />
+            android:checked="false"
+            android:background="@color/steel_blue" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/years4"
             android:id="@+id/fourYearsRadioButton"
-            android:checked="false" />
+            android:checked="false"
+            android:background="@color/steel_blue" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/years5"
             android:id="@+id/fiveYearsRadioButton"
-            android:checked="false" />
+            android:checked="false"
+            android:background="@color/steel_blue" />
 
     </RadioGroup>
 
