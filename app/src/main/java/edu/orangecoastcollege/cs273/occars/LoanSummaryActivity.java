@@ -30,6 +30,9 @@ public class LoanSummaryActivity extends Activity {
         String monthlyPaymentText = intentFromPurchaseActivity.getStringExtra("MonthlyPayment");
         monthlyPaymentTextView.setText(monthlyPaymentText);
 
+        String loanSummaryText = intentFromPurchaseActivity.getStringExtra("LoanSummary");
+        loanReportTextView.setText(loanSummaryText);
+
 
     }
 }

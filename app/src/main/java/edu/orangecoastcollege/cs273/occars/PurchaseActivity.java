@@ -3,6 +3,8 @@ package edu.orangecoastcollege.cs273.occars;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -15,7 +17,9 @@ public class PurchaseActivity extends Activity {
     private RadioButton fourYearsRadioButton;
     private RadioButton fiveYearsRadioButton;
 
-    private Car currentCar;
+
+
+    private Car currentCar = new Car();
 
     private String monthlyPaymentText;
     private String loanSummaryText;
@@ -95,8 +99,75 @@ public class PurchaseActivity extends Activity {
         fourYearsRadioButton = (RadioButton) findViewById(R.id.fourYearsRadioButton);
         fiveYearsRadioButton = (RadioButton) findViewById(R.id.fiveYearsRadioButton);
 
-        currentCar = new Car();
+        carPriceEditText.addTextChangedListener(carPriceChangedListener);
+        downPaymentEditText.addTextChangedListener(downPaymentChangedListener);
 
 
     }
+
+    private TextWatcher carPriceChangedListener = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            try
+            {
+                if (charSequence.length() > 0) {
+                    double amount = Double.parseDouble(charSequence.toString());
+                    currentCar.setPrice(amount);
+                }
+                else
+                {
+                    double amount = 0.0;
+                    currentCar.setPrice(amount);
+                }
+
+            }
+            catch (NumberFormatException e)
+            {
+                carPriceEditText.setText("");
+            }
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+        }
+    };
+
+    private TextWatcher downPaymentChangedListener = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            try
+            {
+                if (charSequence.length() > 0) {
+                    double amount = Double.parseDouble(charSequence.toString()) / 100.0;
+                    currentCar.setDownPayment(amount);
+                }
+                else
+                {
+                    double amount = 0.0;
+                    currentCar.setDownPayment(amount);
+                }
+
+            }
+            catch (NumberFormatException e)
+            {
+                downPaymentEditText.setText("");
+            }
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+        }
+    };
 }
