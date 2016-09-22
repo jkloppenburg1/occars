@@ -25,27 +25,38 @@ public class Car {
 
     public double calculateBorrowedAmount()
     {
-        return getPrice() - getDownPayment();
+        return (getPrice() + calculateTaxAmount()) - getDownPayment();
     }
 
     public double calculateInterestAmount()
     {
-    return 0.0;
+        if (mLoanTerm == 5)
+        {
+            return calculateBorrowedAmount() * 0.0462;
+        }
+        else if (mLoanTerm == 4)
+        {
+            return calculateBorrowedAmount() * 0.0419;
+        }
+        else
+        {
+            return  calculateBorrowedAmount() * 0.0416;
+        }
     }
 
     public double calculateMonthlyPayment()
     {
-        return 0.0;
+        return (calculateBorrowedAmount() + calculateInterestAmount()) / (mLoanTerm * 12);
     }
 
     public double calculateTaxAmount()
     {
-        return getDownPayment() * TAX_RATE;
+        return mPrice * TAX_RATE;
     }
 
     public double calculateTotalAmount()
     {
-        return getDownPayment() + calculateTaxAmount();
+        return mPrice + calculateTaxAmount();
     }
 
     public double getDownPayment() {

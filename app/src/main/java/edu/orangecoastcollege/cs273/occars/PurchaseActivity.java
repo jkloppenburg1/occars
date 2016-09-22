@@ -80,7 +80,7 @@ public class PurchaseActivity extends Activity {
                 + getString(R.string.report_line6) + currentCar.calculateTotalAmount()
                 + getString(R.string.report_line7) + currentCar.calculateBorrowedAmount()
                 + getString(R.string.report_line8) + currentCar.calculateInterestAmount()
-                //+ getString(R.string.report_line4) + currentCar.getLoanTerm()
+                + getString(R.string.report_line4) + currentCar.getLoanTerm() + getString(R.string.years)
                 + getString(R.string.report_line9)
                 + getString(R.string.report_line10)
                 + getString(R.string.report_line11);
